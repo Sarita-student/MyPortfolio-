@@ -24,7 +24,7 @@ export const navLinks = [
 ];
 
 export const typingRoles = [
-  "Junior Full Stack Developer",
+  "Full Stack Developer",
   "React Developer",
   "Frontend Developer",
   "Web Developer",
@@ -81,6 +81,7 @@ export const projects = [
     technologies: ["React.js", "JavaScript", "AI Tools", "Vercel"],
     github: "https://github.com/Sarita-student/Resume-Maker",
     live: "https://resume-maker-two-mocha.vercel.app/",
+     image: "/images/resume-maker.png", 
     highlights: [
       "Utilized ChatGPT, Cursor AI, VS Code, and Antigravity during development",
       "Implemented responsive UI and resume generation workflow",
@@ -94,6 +95,7 @@ export const projects = [
     technologies: ["React.js", "JavaScript", "Vercel"],
     github: "https://github.com/Sarita-student/FlashCard",
     live: "https://flash-card-sandy.vercel.app/",
+      image: "/images/flashcard.png", 
     highlights: [
       "Built with React component-based architecture",
       "Dynamic card navigation and responsive design",

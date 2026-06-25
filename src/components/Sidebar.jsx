@@ -68,14 +68,14 @@ export default function Sidebar({ activeSection }) {
         </a>
       </div>
 
-      <a
-        href={projects[0]?.live || "#projects"}
+      {/* <a
+        href={projects[0,1]?.live || "#projects"}
         target="_blank"
         rel="noopener noreferrer"
         className="block w-full text-center border border-green-500 text-green-500 rounded-md py-2.5 px-4 text-sm hover:bg-green-500/10 transition-colors mb-10"
       >
         Check out my projects
-      </a>
+      </a> */}
 
       <nav className="flex-1">
         <ul className="space-y-1">

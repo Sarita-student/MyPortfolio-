@@ -238,49 +238,86 @@ export default function Projects() {
             </div>
 
             <div className="p-6 md:p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">{project.title}</h3>
-              <p className="text-gray-600 mb-5 leading-relaxed">{project.description}</p>
 
-              {project.highlights?.length > 0 && (
-                <ul className="space-y-2 mb-6">
-                  {project.highlights.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-gray-600 text-sm">
-                      <span className="text-blue-600 mt-1">▸</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                {project.title}
+              </h3>
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 text-xs bg-blue-50 text-blue-700 rounded-full border border-blue-200"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              {/* Description + Highlights + Screenshot */}
+              <div className="grid lg:grid-cols-[1fr_350px] gap-8">
+
+                {/* LEFT SIDE */}
+                <div>
+
+                  {/* Description */}
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    {project.description}
+                  </p>
+
+                  {/* Highlights */}
+                  {project.highlights?.length > 0 && (
+                    <ul className="space-y-3 mb-6">
+                      {project.highlights.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2 text-gray-600 text-sm"
+                        >
+                          <span className="text-blue-600 mt-1">▸</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs bg-blue-50 text-blue-700 rounded-full border border-blue-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-5 py-2.5 bg-gray-100 border border-gray-200 rounded-lg text-gray-700 text-sm hover:bg-gray-200 transition-colors"
+                    >
+                      <FaGithub /> GitHub
+                    </a>
+
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 rounded-lg text-white text-sm hover:bg-blue-700 transition-colors"
+                    >
+                      <FaExternalLinkAlt /> Live Demo
+                    </a>
+                  </div>
+
+                </div>
+
+                {/* RIGHT SIDE SCREENSHOT */}
+                <div className="flex justify-center lg:justify-end">
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full max-w-[350px] h-[260px] object-cover rounded-xl border border-gray-200 shadow-lg"
+                    />
+                  )}
+                </div>
+
               </div>
 
-              <div className="flex gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-gray-100 border border-gray-200 rounded-lg text-gray-700 text-sm hover:bg-gray-200 transition-colors"
-                >
-                  <FaGithub /> GitHub
-                </a>
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 rounded-lg text-white text-sm hover:bg-blue-700 transition-colors"
-                >
-                  <FaExternalLinkAlt /> Live Demo
-                </a>
-              </div>
             </div>
           </div>
 
@@ -306,9 +343,8 @@ export default function Projects() {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                      i === current ? "bg-blue-600" : "bg-gray-300"
-                    }`}
+                    className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? "bg-blue-600" : "bg-gray-300"
+                      }`}
                     aria-label={`Go to project ${i + 1}`}
                   />
                 ))}
